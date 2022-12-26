@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Register</title>
+
+
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <script src="../static/js/form.js"></script>
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="form row">
+        <form class="form-horizontal col-sm-offset col-md-offset-3" name = "register" action =  "/register" method="post" ;>
+            <h3 class="form-title">Register</h3>
+                <div class="col-sm-9 col-md-9">
+                    <div class="form-group">
+<!--        user icon and username            -->
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input class="form-control required" type="text" name="username" id="username" placeholder="Please enter the username" required>
+                    </div>
+
+<!--        password icon and password                -->
+                    <div class="form-group">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                        <input class="form-control required" type="password" name="password" id="password" placeholder="Please enter the password" required>
+                    </div>
+<!--          confirm password              -->
+                    <div class="form-group">
+                        <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                        <input class="form-control required" type="password" name="resetpw" id="resetpw" placeholder="Please confirm the password" required>
+                    </div>
+<!--        email                -->
+                    <div class="form-group">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <input class="form-control required" type="email" name="email" id="email" placeholder="Please enter the email address" required>
+                    </div>
+
+                    <div class="form-group">
+                    </div>
+                    {% for i in get_flashed_messages()%}
+                        <div class="alert">{{ i }}</div>
+                        <script type="text/javascript">
+                        $('.alert').fadeOut(5000);
+                        </script>
+                    {%  endfor %}
+<!--register -->
+                    <div class="form-group">
+                        <input type="submit" value="Register" class="btn btn-success pull-right">
+                        <a href="/"class="btn btn-info pull-left" id="back_btn">Back</a>
+                    </div>
+
+
+                </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

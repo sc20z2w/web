@@ -1,0 +1,28 @@
+{% extends "purchase_nav.html" %}
+    {% block ct %}
+    <div class="change">
+    {% for i in like_bet_info %}
+        <div class="change1">
+            <ul class="list_group">
+                <li class="list-group-item list-group-item-warning cen">
+                    {{ i.game_time }}<br/>
+                    {{ i.guest_team }} vs {{ i.home_team }}<br/>
+                    {{ i.guest_odds }}  :  {{ i.home_odds }}
+                </li>
+                <div class="cen1">
+                <button type="submit"  class="btn btn-dark">
+                    <a class="link_color" href="{{ url_for('bet_guest',game_id=i.game_id,guest_team=i.guest_team) }}">BET</a>
+                </button>
+                <button type="submit"  class="btn btn-success cen2">
+                    <a class="link_color" href="{{ url_for('bet_home',game_id=i.game_id,home_team=i.home_team) }}">BET</a>
+                </button>
+                </div>
+            </ul>
+        </div>
+        {% endfor %}
+        </div>
+        <div class="form-group">
+            <a href="{{ url_for('show_bet') }}"class="btn btn-info pull-left" id="back_btn">Back</a>
+        </div>
+
+    {% endblock %}

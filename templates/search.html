@@ -1,0 +1,19 @@
+{% extends "navigate.html" %}
+    {% block content %}
+        <div class="change">
+    {% for i in like_info %}
+        <div class="change1">
+            <ul class="list_group">
+                <li class="list-group-item list-group-item-warning cen">
+                    {{ i.game_time }}<br/>
+                    {{ i.guest_team }} vs {{ i.home_team }}<br/>
+                    {{ i.guest_odds }}  :  {{ i.home_odds }}
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
+        </div>
+<div class="form-group">
+            <a href="{{ url_for('start') }}"class="btn btn-info pull-left" id="back_btn">Back</a>
+        </div>
+    {% endblock %}

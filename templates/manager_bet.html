@@ -1,0 +1,38 @@
+{% extends "manager_nav.html" %}
+    {% block c %}
+<div>
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Game ID</th>
+                <th scope="col">Bet team</th>
+                <th scope="col">Bet Money</th>
+                <th scope="col">Win Money</th>
+                <th scope="col">Bet State</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in user_bet %}
+            <tr>
+                <td>{{ i.user_name }}</td>
+                <td>{{ i.game_id }}</td>
+                <td>{{ i.bet_team }}</td>
+                <td>{{ i.bet_money }}</td>
+                <td>{{ i.win_money }}</td>
+                <td><img class="pic" src="{{ i.bet_state }}"/></td>
+                <td>
+                    <button class="btn btn-dark" type="submit">
+                        <a href="{{ url_for('delete', bet_id=i.bet_id, user_name=i.user_name,bet_money=i.bet_money) }}">REPEAL
+                        </a>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        </div>
+        <div class="form-group">
+            <a href="{{ url_for('manager_bet') }}"class="btn btn-info pull-left" id="back_btn">Back</a>
+        </div>
+    {% endblock %}

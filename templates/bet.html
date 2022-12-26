@@ -1,0 +1,17 @@
+{% extends "navigate.html" %}
+    {% block content %}
+<div class="change">
+    {% for i in wager %}
+        <div class="change1">
+            <ul class="list_group">
+                <li class="list-group-item list-group-item-warning cen">
+                    {{ i.game_time }}<br/>
+                    {{ i.guest_team }} vs {{ i.home_team }}<br/>
+                    {{ i.guest_odds }}  :  {{ i.home_odds }}
+                </li>
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
